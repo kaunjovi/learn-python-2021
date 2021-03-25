@@ -17,6 +17,12 @@ def download_mto_data(mto_file_name) :
 
 # download MTO files for given dates 
 
+download_mto_data ("MTO_15032021")
+download_mto_data ("MTO_16032021")
+download_mto_data ("MTO_17032021")
+download_mto_data ("MTO_18032021")
+download_mto_data ("MTO_19032021")
+
 download_mto_data ("MTO_22032021")
 download_mto_data ("MTO_23032021")
 download_mto_data ("MTO_24032021")
