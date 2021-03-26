@@ -10,3 +10,7 @@ def pull_equity_only_data(file ):
 
 
 pull_equity_only_data ("MTO_15032021")
+
+
+## getRawMTOData 
+## prepareEQMTOData 
