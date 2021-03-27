@@ -14,8 +14,8 @@ def modifyDataLine ( rawLine , date ):
 def pull_equity_only_data(file ):
     pattern = re.compile("^.*(,EQ,).*$")
     date = fetchDateFromMTODataFileName(file)
-    with open("./eq-only-data-folder/" + file, 'w') as equity_only_file:
-        for i, line in enumerate(open("./raw-data-folder/" + file )):
+    with open("/Users/kaunjovi/code/learn-python-2021/eq-only-data-folder/" + file, 'w') as equity_only_file:
+        for i, line in enumerate(open("/Users/kaunjovi/code/learn-python-2021/raw-data-folder/" + file )):
             for match in re.finditer(pattern, line):
                 equityLine = match.group()
                 modifiedLine = modifyDataLine (equityLine, date)
@@ -26,7 +26,7 @@ def pull_equity_only_data(file ):
 def prepareRawMTODataForAnalysis (folder) : 
     for filename in os.listdir(folder):
         if filename.endswith(".DAT") : 
-            # print(filename)
+            print ("Working on ["+filename+"]")
             pull_equity_only_data(filename)
 
-prepareRawMTODataForAnalysis ("./raw-data-folder/")
+prepareRawMTODataForAnalysis ("/Users/kaunjovi/code/learn-python-2021/raw-data-folder/")
