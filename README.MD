@@ -7,7 +7,15 @@
 - Is there a standard folder structure for python projects ? 
     - if not, there should be 
     
+# Kuber 
 
+- MTO data 
+    - Download raw data 
+    - Filter only EQ data. Stamp date column. 
+    - Reports 
+        - 
+- Filter only watchlist
+    - 
 
 
 
