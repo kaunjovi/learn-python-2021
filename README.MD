@@ -1,3 +1,12 @@
+
+# Variable declaration in Python 
+
+- [How to Use Static Type Checking in Python 3.6](https://medium.com/@ageitgey/learn-how-to-use-static-type-checking-in-python-3-6-in-10-minutes-12c86d72677b)
+- 
+
+
+
+
 # Learning Python in 2021 
 
 - [self](https://github.com/kaunjovi/learn-python-2021)
