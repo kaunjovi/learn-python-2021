@@ -39,10 +39,29 @@ def download_bhavcopy_from_date (date:str):
 # download_bhavcopy_from_date ("17032021")
 # download_bhavcopy_from_date ("18032021")
 # download_bhavcopy_from_date ("19032021")
+# download_bhavcopy_from_date ("15032021")
+# download_bhavcopy_from_date ("16032021")
+# download_bhavcopy_from_date ("17032021")
+# download_bhavcopy_from_date ("18032021")
+# download_bhavcopy_from_date ("19032021")
 # # ============
 # download_bhavcopy_from_date ("22032021")
 # download_bhavcopy_from_date ("23032021")
 # download_bhavcopy_from_date ("24032021")
 # download_bhavcopy_from_date ("25032021")
 # download_bhavcopy_from_date ('26032021')
+
+# # ============
+# download_bhavcopy_from_date ("08032021")
+# download_bhavcopy_from_date ("09032021")
+# download_bhavcopy_from_date ("10032021")
+# download_bhavcopy_from_date ("11032021")
+# download_bhavcopy_from_date ('12032021')
+
+# # ============
+# download_bhavcopy_from_date ("01032021")
+# download_bhavcopy_from_date ("02032021")
+# download_bhavcopy_from_date ("03032021")
+# download_bhavcopy_from_date ("04032021")
+# download_bhavcopy_from_date ("05032021")
 
