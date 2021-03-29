@@ -58,27 +58,37 @@ filenames = glob(RAW_BHAV_DATA_FOLDER + '*.csv')
 dataframes = [pd.read_csv(f) for f in filenames]
 df = pd.concat( dataframes)
 df.rename(columns=lambda x: x.strip(), inplace=True)
+df.fillna(0)
 
-
+## Too much data. 
+## Drop a few columns for the time. 
 df.drop(['OPEN_PRICE'], axis=1 , inplace=True)
 df.drop(['HIGH_PRICE'], axis=1,  inplace=True)
 df.drop(['LOW_PRICE'], axis=1, inplace=True)
 df.drop(['LAST_PRICE'], axis=1, inplace=True)
 
+## DELIV_PER has some '-' in it. Fix them. Fix the column type. 
+df['DELIV_PER'] = df['DELIV_PER'].str.strip()
+df['DELIV_PER'] = df['DELIV_PER'].replace(['-'],'0.00')
+df[['DELIV_PER']] = df[['DELIV_PER']].apply(pd.to_numeric)
 
-# for col in df.columns:
-#     print(col)
+## DELIV_QTY has some '-' in it. Fix them. Fix the column type. 
+df['DELIV_QTY'] = df['DELIV_QTY'].str.strip()
+df['DELIV_QTY'] = df['DELIV_QTY'].replace(['-'],'0')
+df[['DELIV_QTY']] = df[['DELIV_QTY']].apply(pd.to_numeric)
 
 
-grouped_df = df.groupby(['SYMBOL'])[['TURNOVER_LACS', 'NO_OF_TRADES']].mean()
 
-# print (grouped_df.shape)
-# print (grouped_df.size)
-# print (grouped_df.head(10))
 
 # for col in grouped_df.columns:
 #     print(col)
 
-sorted_df = grouped_df.sort_values( ['TURNOVER_LACS', 'NO_OF_TRADES' ], ascending = [False,False])
+# grouped_df = df.groupby(['SYMBOL'])[['TURNOVER_LACS', 'NO_OF_TRADES']].mean()
+# # sorted_df = grouped_df.sort_values( ['TURNOVER_LACS', 'NO_OF_TRADES' ], ascending = [False,False])
 
+# for col in grouped_df.columns:
+#     print(col)
+
+grouped_df = df.groupby(['SYMBOL'])[['TURNOVER_LACS', 'DELIV_PER']].mean()
+sorted_df = grouped_df.sort_values( ['TURNOVER_LACS', 'DELIV_PER' ], ascending = [False,False])
 print (sorted_df.head(50))
