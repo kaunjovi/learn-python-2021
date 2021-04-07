@@ -38,7 +38,7 @@ def download_bhavcopy_from_date (date:str):
 # download_bhavcopy_from_date ("16032021")
 # download_bhavcopy_from_date ("17032021")
 # download_bhavcopy_from_date ("18032021")
-# download_bhavcopy_from_date ("19032021")
+# download_bhavcopy_from_date ("19032021")``
 # download_bhavcopy_from_date ("15032021")
 # download_bhavcopy_from_date ("16032021")
 # download_bhavcopy_from_date ("17032021")
