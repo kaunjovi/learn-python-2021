@@ -11,27 +11,38 @@ if __name__ == "__main__":
 
 # Is there a recommended folder structure with Python3 ? 
 
-Python doesn't have a distinction between /src , /lib , and /bin like Java or C has. 
-Since a top-level /src directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application. 
-I recommend putting all of this under the "name-of-my-product" directory.
+- Short answer is no. 
+    - You could feel totally helpless about it. 
+    - Or you could use it to your advantage. 
+    - Lets do that then. :) 
+- Python can get away with it because because Python projects can be simple. 
+    - Might be that is the sweet spot for Python3. Probably dont try too big project with Python3. 
+    - Doesn't too much matter. Whatever makes you happy will work. 
+- Lot of roules could be silly in the context of simply Python3 projects. 
 
-Doesn't too much matter. Whatever makes you happy will work. There aren't a lot of silly rules because Python projects can be simple.
 
-/scripts or /bin for that kind of command-line interface stuff
-/tests for your tests
-/lib for your C-language libraries
-/doc for most documentation
-/apidoc for the Epydoc-generated API docs.
-And the top-level directory can contain README's, Config's and whatnot.
+- Python doesn't have a distinction between /src , /lib , and /bin like Java or C has. 
+- The top-level directory can be the top-level architecture of your application. 
+- I recommend putting all of this under the "name-of-my-product" directory.
 
-The hard choice is whether or not to use a /src tree. Python doesn't have a distinction between /src, /lib, and /bin like Java or C has.
+- One possible way of setting up the folders
+    - /scripts or /bin for that kind of command-line interface stuff
+    - /tests for your tests
+    - /lib for your C-language libraries
+    - /doc for most documentation
+    - /apidoc for the Epydoc-generated API docs.
+    - And the top-level directory can contain README's, Config's and whatnot.
+
+The hard choice is whether or not to use a /src tree. 
+Python doesn't have a distinction between /src, /lib, and /bin like Java or C has.
 
 Since a top-level /src directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application.
-
 /foo
 /bar
 /baz
-I recommend putting all of this under the "name-of-my-product" directory. So, if you're writing an application named quux, the directory that contains all this stuff is named  /quux.
+
+I recommend putting all of this under the "name-of-my-product" directory. 
+So, if you're writing an application named quux, the directory that contains all this stuff is named  /quux.
 
 - https://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application
 
