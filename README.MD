@@ -100,4 +100,5 @@ So, if you're writing an application named quux, the directory that contains all
 - 
 - However you have little control over the version number you run, as Apple updates it only with new Xcode - releases.
 
+## How do you refactor Python3 code in VSCodium ? 
 

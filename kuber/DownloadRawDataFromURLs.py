@@ -3,13 +3,13 @@ import urllib.request
 import shutil
 from datetime import date
 
-def construct_complete_bhav_url ( date ) :
+def get_complete_bhav_url ( date ) :
     complete_bhav_url = constants.FULL_BHAV_URL 
     complete_bhav_url += date
     complete_bhav_url += constants.FULL_BHAV_URL_FILE_EXT
     return complete_bhav_url
 
-def construct_complete_bhav_url_file ( complete_bhav_url ) :
+def get_complete_bhav_url_file ( complete_bhav_url ) :
     bhav_url_file = complete_bhav_url.split('/')[-1]
 
     complete_bhav_url_file = constants.RAW_DATA_FOLDER_FULL_BHAV_COPY 
@@ -28,8 +28,8 @@ def download_sec_bhavdata_full_for_day ( day ) :
     
 
 def download_sec_bhavdata_full ( day ) : 
-    complete_bhav_url = construct_complete_bhav_url ( day )
-    complete_bhav_url_file = construct_complete_bhav_url_file ( complete_bhav_url )
+    complete_bhav_url = get_complete_bhav_url ( day )
+    complete_bhav_url_file = get_complete_bhav_url_file ( complete_bhav_url )
 
 
     print ('Downloading full bhavcopy and security delivereable data')
@@ -41,3 +41,8 @@ def download_sec_bhavdata_full ( day ) :
     ## And write the content of URL to the local file 
     with urllib.request.urlopen(complete_bhav_url) as response, open(complete_bhav_url_file, 'wb') as out_file:
         shutil.copyfileobj(response, out_file)
+
+
+if __name__ == "__main__":
+    download_sec_bhavdata_full_for_today()
+    
