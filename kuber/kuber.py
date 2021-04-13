@@ -1,4 +1,5 @@
-from DownloadRawDataFromURLs import download_sec_bhavdata_full_for_today, download_sec_bhavdata_full_for_day
+from DownloadRawDataFromURLs import download_sec_bhavdata_full_for_day
+from DownloadRawDataFromURLs import download_sec_bhavdata_full_for_today
 import constants 
 
 import pandas as pd
@@ -20,6 +21,8 @@ def main():
     # download_sec_bhavdata_full_for_day ('06042021')
     # download_sec_bhavdata_full_for_day ('07042021')
     # download_sec_bhavdata_full_for_today()
+
+    
 
     # I would like to look at the entire dataset when I print out 
     pd.set_option('display.max_rows', 2000)
