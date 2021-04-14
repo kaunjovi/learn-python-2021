@@ -9,6 +9,12 @@ if __name__ == "__main__":
     main()
 ```
 
+# Run that with virtual environment. 
+
+```
+pipenv run python my_project.py
+```
+
 # Is there a recommended folder structure with Python3 ? 
 
 - Short answer is no. 
