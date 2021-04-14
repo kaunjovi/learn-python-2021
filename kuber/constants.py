@@ -1,3 +1,5 @@
+from datetime import date
+
 FULL_BHAV_URL_LOCATION = 'https://archives.nseindia.com/products/content/'
 BHAV_FILE_FIRST_NAME = 'sec_bhavdata_full_'
 FULL_BHAV_URL = FULL_BHAV_URL_LOCATION + BHAV_FILE_FIRST_NAME
@@ -5,6 +7,9 @@ FULL_BHAV_URL_DATE = '07042021'
 FULL_BHAV_URL_FILE_EXT = '.csv'
 
 RAW_DATA_FOLDER_FULL_BHAV_COPY = '/Users/kaunjovi/code/learn-python-2021/kuber/data/full-bhav-copy/'
+
+def TODAY () : 
+    return date.today().strftime('%d%m%Y')
 
 def COMPLETE_BHAV_URL ( date ) :
     complete_bhav_url = FULL_BHAV_URL 

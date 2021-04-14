@@ -42,19 +42,18 @@ def create_basic_df (day):
 
     df_equity_only = df[df['SERIES'] == 'EQ']
     # print (df.count)
-    print ( df_equity_only.describe())
+    # print ( df_equity_only.describe())
     print (df_equity_only[['DATE1', 'SYMBOL', 'DELIV_LACS', 'AVG_PRICE', 'DELIV_QTY', 'DELIV_PER']].sort_values('DELIV_LACS', ascending=False).head(20))
 
     return df 
 
 
 def generate_day_report_for_today(): 
-    today_in_ddmmyyyy_format = date.today().strftime('%d%m%Y') 
-    generate_day_report ( today_in_ddmmyyyy_format)
+    generate_day_report ( constants.TODAY())
 
 
 def generate_day_report (day ):
-    print('Generating daily reports for ' + day)
+    #print('Generating daily reports for ' + day)
     configure_pd()
     # basic_df = 
     create_basic_df( day )
