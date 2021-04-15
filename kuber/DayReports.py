@@ -1,7 +1,7 @@
 from datetime import date
 import pandas as pd
 import constants 
-
+import os.path
 
 def configure_pd() : 
     # I would like to look at the entire dataset when I print out 
@@ -11,10 +11,7 @@ def configure_pd() :
 
 
 def create_basic_df (day): 
-    ## Now lets do some analytics on it. 
-    # filenames = glob( constants.RAW_DATA_FOLDER_FULL_BHAV_COPY + '*.csv')
-    # dataframes = [pd.read_csv(f) for f in filenames]
-    # df = pd.concat( dataframes)
+
     df = pd.read_csv ( constants.COMPLETE_BHAV_FILE_BY_DAY(day))
 
     df.rename(columns=lambda x: x.strip(), inplace=True)
@@ -32,6 +29,8 @@ def create_basic_df (day):
     df[['DELIV_QTY']] = df[['DELIV_QTY']].apply(pd.to_numeric)
 
     df['DELIV_LACS'] = df.apply (lambda row: (row['TURNOVER_LACS'] * row['DELIV_PER'] )/100 , axis=1)
+    df['DELIV_LACS'] = df['DELIV_LACS'].astype(int)
+    # df['DELIV_LACS'].apply(pd.to_float)
 
     df.drop('PREV_CLOSE', axis='columns', inplace=True)
     df.drop('OPEN_PRICE', axis='columns', inplace=True)
@@ -43,9 +42,11 @@ def create_basic_df (day):
     df_equity_only = df[df['SERIES'] == 'EQ']
     # print (df.count)
     # print ( df_equity_only.describe())
-    print (df_equity_only[['DATE1', 'SYMBOL', 'DELIV_LACS', 'AVG_PRICE', 'DELIV_QTY', 'DELIV_PER']].sort_values('DELIV_LACS', ascending=False).head(20))
+    df_top_twenty_deliveries = df_equity_only[['DATE1', 'SYMBOL', 'DELIV_LACS', 'AVG_PRICE', 'DELIV_QTY', 'DELIV_PER']].sort_values('DELIV_LACS', ascending=False).head(20)
 
-    return df 
+    # df.to_csv('check.csv')
+
+    return df_top_twenty_deliveries
 
 
 def generate_day_report_for_today(): 
@@ -53,10 +54,19 @@ def generate_day_report_for_today():
 
 
 def generate_day_report (day ):
-    #print('Generating daily reports for ' + day)
-    configure_pd()
-    # basic_df = 
-    create_basic_df( day )
+    
+    file = constants.COMPLETE_BHAV_FILE_BY_DAY(day) 
+
+    if os.path.isfile(file) :
+        #print('Generating daily reports for ' + day)
+        print ('Got the file ' + file + '. Analyzing now ...')
+        configure_pd()
+        # basic_df = 
+        df = create_basic_df( day )
+        df.to_csv( constants.COMPLETE_TOPTWENTY_MONTHLY_REPORT_FILE(day) , mode='a', header=True)
+    else : 
+        print (file + " does not exist. Moving on.")
+        return None
 
 if __name__ == "__main__":
     # today_in_ddmmyyyy_format = date.today().strftime('%d%m%Y') 
